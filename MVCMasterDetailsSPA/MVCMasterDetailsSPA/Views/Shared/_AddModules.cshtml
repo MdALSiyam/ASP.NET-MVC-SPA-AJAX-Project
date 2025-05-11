@@ -1,0 +1,27 @@
+﻿@model List<MVCMasterDetailsSPA.Models.CourseModule>
+<table id="ExTable" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Module Name</th>
+            <th>Duration</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            <tr>
+                <td>
+                    <input type="text" value="@Model[i].ModuleName" class="form-control" name="CourseModules[@i].ModuleName" />
+                </td>
+                <td>
+                    <input type="text" value="@Model[i].Duration" class="form-control" name="CourseModules[@i].Duration" />
+                </td>
+                <td>
+                    <button onclick="deleteRow(this)" type="button" class="btn btn-danger btn-sm">Delete</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<input type="hidden" id="HIndex" value="@Model.Count" />
+
